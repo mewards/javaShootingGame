@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;game&apos;&#x0A;- Original project: &apos;game&apos;&#x0A;- Original elements:&#x0A;     game.SampleCanvas.java&#x0A;     game.SampleCanvas2.java&#x0A;     game.SampleCanvas3.java&#x0A;     game.TitleScene.java" description="Delete elements" element1="/src&lt;game{SampleCanvas3.java" element2="/src&lt;game{TitleScene.java" element3="/src&lt;game{SampleCanvas2.java" element4="/src&lt;game{SampleCanvas.java" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1391264932977" subPackages="false" version="1.0"/>
+</session>

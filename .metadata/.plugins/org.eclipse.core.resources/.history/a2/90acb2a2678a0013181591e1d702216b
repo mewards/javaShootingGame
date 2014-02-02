@@ -1,0 +1,81 @@
+package game;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+
+public class SampleCanvas3 extends GameCanvas {
+
+	Image testImage;
+	int cnt;
+
+	public SampleCanvas3(GameManager manager) {
+
+		super(manager);
+
+		manager.nowCanvas = (GameCanvas) this;
+
+		cnt = 0;
+	}
+
+	@Override
+	public void dblpaint(Graphics gContext) {
+		// TODO Auto-generated method stub
+
+		gContext.drawImage(testImage, 0, 0, this);
+	}
+
+	@Override
+	public void initImage() {
+		// TODO Auto-generated method stub
+
+		testImage = manager.makeImage("rsc/result_sample.jpg");
+	}
+
+	@Override
+	public void releaseImage() {
+		// TODO Auto-generated method stub
+		testImage = null;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+
+		cnt++;
+		if (cnt % 10 == 0)
+			System.out.println("스레드3 수행 확인 " + cnt);
+	}
+
+	@Override
+	public void Destroy() {
+		// TODO Auto-generated method stub
+		super.Destroy();
+		manager.remove(this);// GameManager의 firstScene에서 이 씬(클래스)을 add했으므로,
+								// remove하여 제거한다.
+		releaseImage();
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		super.keyTyped(e);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		super.keyPressed(e);
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+		Destroy();
+		// 다른 씬으로 전환한다
+		manager.sceneChange((GameCanvas) new SampleCanvas(manager));
+
+	}
+
+}
